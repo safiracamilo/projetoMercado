@@ -29,10 +29,19 @@ describe("PetStore Swagger - Pet", () => {
                assert.equal(response.body.name,"Lis"); // Se é o nome esperado
                assert.equal(response.body.status,"available"); // Se está com status esperado
             });
-
-
     });
 
+    // Consulta o animal pelo petID
+    it("Get Pet",() => {
+        return request     // chamada para requisição
+            .get("/pet/" + petId)  // consultar o anima pelo id
+            .then ((response) => {  // tratar a resposta / retorno
+                assert.equal(response.statusCode, 200);
+                assert.equal(response.body.id, petId);
+                assert.equal(response.body.name, "Lis");
+                assert.equal(response.body.status,"available");
+            });
+    })
 })
 
 
