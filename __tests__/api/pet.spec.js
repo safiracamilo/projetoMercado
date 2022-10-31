@@ -42,6 +42,34 @@ describe("PetStore Swagger - Pet", () => {
                 assert.equal(response.body.status,"available");
             });
     })
-})
+
+    // Alterar dados do animal
+    it("Put Pet", () => {
+        // apontar para o arquivo json com a alteração desejada
+        const jsonFile = require("../../vendors/json/pet2");
+        return request      // realizar a requisição
+            .put("/pet")    // alterar o animal - aponta para endpoint
+            .send(jsonFile)  // json com a alteração
+            .then((response) => {  // receber e validar a resposta
+                assert.equal(response.statusCode, 200);
+                assert.equal(response.body.id, petId);
+                assert.equal(response.body.name, "Lis");
+                assert.equal(response.body.tags[1].id, 4);
+                assert.equal(response.body.tags[1].name, "castrated");
+                assert.equal(response.body.status, "solded");
+
+            }); // fecha o then   
+
+    });  // fecha o it
+
+    it ("Delet Pet", () => {
+        return request
+            .delete("/pet/" + petId)
+            .then((response) => {
+                assert.equal(response.statusCode,200)
+            });
+    });
+
+}); // fecha o describe
 
 

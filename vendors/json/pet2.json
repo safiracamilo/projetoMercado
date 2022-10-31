@@ -1,0 +1,22 @@
+{
+    "id": 5191985,
+    "category": {
+      "id": 2,
+      "name": "cat"
+    },
+    "name": "Lis",
+    "photoUrls": [
+      ""
+    ],
+    "tags": [
+      {
+        "id": 3,
+        "name": "vaccinated"
+      },
+      {
+        "id": 4,
+        "name": "castrated"
+      }
+    ],
+    "status": "solded"
+  }
